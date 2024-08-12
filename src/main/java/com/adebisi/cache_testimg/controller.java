@@ -1,11 +1,11 @@
 package com.adebisi.cache_testimg;
 
 
+import com.adebisi.cache_testimg.dto.TestBodyObject;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,5 +39,18 @@ public class controller {
     public String getCustom(@RequestParam Channel channel) throws InterruptedException {
 
         return service.getCustom(channel);
+    }
+
+
+    @GetMapping("custom-object")
+    public HashMap<String, String>  getCustomCacheTest(@RequestBody HashMap<String, String> channel) throws InterruptedException {
+
+        return service.getObjectFull(channel);
+    }
+
+    @GetMapping("custom-object-field")
+    public TestBodyObject getCustomCacheTestField(@RequestBody com.adebisi.cache_testimg.dto.TestBodyObject channel) throws InterruptedException {
+
+        return service.getObjectField(channel);
     }
 }

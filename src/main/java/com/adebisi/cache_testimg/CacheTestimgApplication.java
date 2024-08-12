@@ -27,28 +27,7 @@ public class CacheTestimgApplication {
 		SpringApplication.run(CacheTestimgApplication.class, args);
 	}
 
-@Bean
-	public CommandLineRunner commandLineRunner (){
-		return args -> {
-
-			ServiceAccount serviceAccount = readJsonFile("/Users/adebisiadeyemi/IdeaProjects/cache-testimg/src/main/resources/enterprise-agent-app-firebase-adminsdk-v1kg8-38c1c75ac5.json");
-
-			  log.info("------------------testing 1,2,34 {}", serviceAccount );
-
-			log.info("------------------testi 1,2,34 {}", notificationMailPropertyConfig );
-
-		};
-	}
 
 
-
-	public ServiceAccount readJsonFile(String filePath) {
-		try {
-			return objectMapper.readValue(new File(filePath), ServiceAccount.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 
 }
